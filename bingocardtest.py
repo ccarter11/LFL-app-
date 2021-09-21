@@ -1,6 +1,6 @@
 #bingo card program 
 
-
+test = "changeone"
 #import bingo data
 from graphics import * 
 
