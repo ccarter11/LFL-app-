@@ -21,7 +21,7 @@ def main():
 
     kidCatRandom = sample(kidCatList,24)
     print(kidCatList)
-    print("hi")
+   
 
     # Now must plot strings from list into GUI
     
