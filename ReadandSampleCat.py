@@ -6,11 +6,11 @@ def main():
 
     # Open adultCategories.txt file and read from it
     # Splits each newline and omits "/n" from being in the list
-    with open('adultCategories.txt','r') as file:
+    with open('adultCategories.txt','r',encoding="utf8") as file:
         adultCatList = file.read().splitlines()
         print(adultCatList)
 
-    with open('kidCategories.txt','r') as file:
+    with open('kidCategories.txt','r',encoding="utf8") as file:
         kidCatList = file.read().splitlines()
         #print(kidCatList)
 
