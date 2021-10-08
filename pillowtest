@@ -1,0 +1,79 @@
+impoimport textwrap
+from random import sample 
+def readfile():
+
+    # Open adultCategories.txt file and read from it
+    # Splits each newline and omits "/n" from being in the list
+    with open('adultCategories.txt','r',encoding="utf8") as file:
+        adultCatList = file.read()
+        adultCatList = adultCatList.splitlines()
+        print(adultCatList)
+
+    #with open('kidCategories.txt','r') as file:
+        #kidCatList = file.read().splitlines()
+        #print(kidCatList)
+
+    #Sample 24 random elements from list (does not repeat elements)
+        
+    adultCatRandom = sample(adultCatList,24)
+  :
+      
+    #print(adultCatRandom)
+
+    #kidCatRandom = sample(kidCatList,24)
+    #print(kidCatList)
+    return adultCatRandom
+
+    # Now must plot strings from list into GUI
+#bingo card program 
+
+
+#import bingo data
+
+def setcoords():
+   
+
+    xo=80
+    yo=240
+    xm=110
+    ym=110
+
+#generate list of midpoints
+    s=[]
+
+    for i in range(0,5):
+        for j in range(0,5):
+            x=xo + i*xm
+            y=yo + j*ym
+            pnt= (x,y)
+            s.append(pnt)
+            
+    #print(s) 
+    return s
+def main():
+   
+    img = Image.open( "bcgraphic.gif")
+    draw = ImageDraw.Draw(im)
+    fornt_size = 12
+    wrapper=textwrap.TextWrapper(width=14)
+    acats= readfile()
+    coords = setcoords()
+    
+    #print(len(acats))
+    #print(len(coords))
+    for i in range(0,25):
+        if (i <12):
+          
+            draw.text(coords[i], wrapper.fill(text =acats[i]), font = font , align ="center" , fill = "black" anchor ="mm"
+        if(i>12):
+            
+            draw.text(coords[i], wrapper.fill(text= acats[i-1]), font = font , align ="center" , fill = "black" anchor ="mm"
+        
+
+
+        
+    #txt = Text(Point(300,450),"What's up?")
+    #txt.draw(win)
+
+
+main()
