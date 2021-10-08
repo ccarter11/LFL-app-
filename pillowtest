@@ -1,4 +1,6 @@
-impoimport textwrap
+from PIL import Image, ImageDraw, ImageFont
+
+import textwrap
 from random import sample 
 def readfile():
 
@@ -16,7 +18,6 @@ def readfile():
     #Sample 24 random elements from list (does not repeat elements)
         
     adultCatRandom = sample(adultCatList,24)
-  :
       
     #print(adultCatRandom)
 
@@ -35,8 +36,8 @@ def setcoords():
 
     xo=80
     yo=240
-    xm=110
-    ym=110
+    xm=105
+    ym=105
 
 #generate list of midpoints
     s=[]
@@ -52,24 +53,25 @@ def setcoords():
     return s
 def main():
    
-    img = Image.open( "bcgraphic.gif")
-    draw = ImageDraw.Draw(im)
-    fornt_size = 12
+    img = Image.open( "bingocardgraphic.jpeg")
+    draw = ImageDraw.Draw(img)
+    font_size = 12
     wrapper=textwrap.TextWrapper(width=14)
     acats= readfile()
     coords = setcoords()
+    font = ImageFont.truetype("Arial Black.ttf", size=font_size)
     
     #print(len(acats))
     #print(len(coords))
     for i in range(0,25):
         if (i <12):
-          
-            draw.text(coords[i], wrapper.fill(text =acats[i]), font = font , align ="center" , fill = "black" anchor ="mm"
+            
+            draw.text(coords[i], wrapper.fill(text =acats[i]), font = font , align ="center" , fill = "black", anchor ="mm")
         if(i>12):
             
-            draw.text(coords[i], wrapper.fill(text= acats[i-1]), font = font , align ="center" , fill = "black" anchor ="mm"
+            draw.text(coords[i], wrapper.fill(text= acats[i-1]), font = font , align ="center" , fill = "black", anchor ="mm")
         
-
+    img.show()
 
         
     #txt = Text(Point(300,450),"What's up?")
