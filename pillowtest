@@ -56,20 +56,24 @@ def main():
     img = Image.open( "bingocardgraphic.jpeg")
     draw = ImageDraw.Draw(img)
     font_size = 12
-    wrapper=textwrap.TextWrapper(width=14)
+    wrapper=textwrap.TextWrapper(width=13)
     acats= readfile()
     coords = setcoords()
     font = ImageFont.truetype("Arial Black.ttf", size=font_size)
     
     #print(len(acats))
     #print(len(coords))
-    for i in range(0,25):
+    for i in range(25):
         if (i <12):
-            
+            if len(acats[i]) > 50:
+                font = ImageFont.truetype("Arial Black.ttf", size=10)
             draw.text(coords[i], wrapper.fill(text =acats[i]), font = font , align ="center" , fill = "black", anchor ="mm")
+            font = ImageFont.truetype("Arial Black.ttf", size=12)
         if(i>12):
-            
+            if len(acats[i-1]) > 50:
+                font = ImageFont.truetype("Arial Black.ttf", size=10)
             draw.text(coords[i], wrapper.fill(text= acats[i-1]), font = font , align ="center" , fill = "black", anchor ="mm")
+            font = ImageFont.truetype("Arial Black.ttf", size=12)
         
     img.show()
 
